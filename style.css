@@ -1,55 +1,129 @@
-
-body {
+/* ===== Reset & Base ===== */
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0f172a;
-  color: #e5e7eb;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #e5e7eb;
+  background: linear-gradient(270deg, #0f172a, #020617, #1e293b);
+  background-size: 600% 600%;
+  animation: gradientMove 18s ease infinite;
+  overflow-x: hidden;
+}
+
+/* ===== Moving Gradient Background ===== */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Header (3D Hero) ===== */
 header {
   text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #2563eb, #1e40af);
+  padding: 100px 20px;
+  background: radial-gradient(circle at top, #2563eb, #020617);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  perspective: 1000px;
 }
 
 h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+  font-size: 3.2rem;
+  margin-bottom: 12px;
+  transform: translateZ(40px);
 }
 
+header p {
+  opacity: 0.85;
+}
+
+/* ===== Button (Lift Effect) ===== */
 .btn {
   display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background: #22c55e;
+  margin-top: 25px;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
   color: #000;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.btn:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(34,197,94,0.5);
+}
+
+/* ===== Section Glass Cards ===== */
 section {
-  padding: 60px 20px;
+  padding: 60px 30px;
   max-width: 900px;
-  margin: auto;
+  margin: 70px auto;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+section:hover {
+  transform: translateY(-12px) rotateX(2deg);
+  box-shadow: 0 50px 90px rgba(0,0,0,0.7);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-left: 5px solid #22c55e;
+  padding-left: 14px;
+}
+
+/* ===== Skills (3D Pills) ===== */
 .skills span {
   display: inline-block;
-  margin: 8px;
-  padding: 10px 16px;
-  background: #1e293b;
-  border-radius: 6px;
+  margin: 10px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.skills span:hover {
+  transform: translateY(-6px) rotateX(10deg);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.6);
+}
+
+/* ===== Project Cards ===== */
 .project {
-  margin-top: 20px;
-  padding: 20px;
-  background: #1e293b;
-  border-radius: 8px;
+  margin-top: 25px;
+  padding: 25px;
+  background: rgba(2,6,23,0.7);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 rgba(255,255,255,0);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+.project:hover {
+  transform: translateZ(25px) scale(1.03);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+}
+
+.project h3 {
+  color: #22c55e;
+  margin-bottom: 8px;
+}
+
+/* ===== Footer ===== */
 footer {
   text-align: center;
-  padding: 20px;
-  background: #020617;
+  padding: 30px;
+  background: rgba(2,6,23,0.9);
+  opacity: 0.8;
 }
